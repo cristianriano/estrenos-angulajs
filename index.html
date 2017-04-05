@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"></meta>
+    <link rel="stylesheet" href="https://gitcdn.xyz/repo/angular/bower-material/master/angular-material.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles/style.css"></link>
+    <title></title>
+  </head>
+  <body ng-app="app" ng-controller="NavController">
+
+    <section layout="column" layout-fill>
+      <md-toolbar>
+        <div class="md-toolbar-tools" layout>
+          <md-button hide-gt-sm class="md-icon-button" ng-click="open()"><md-icon>menu</md-icon></md-button>
+          <span class="md-title">Estrenos</span>
+          <span flex></span>
+          <md-button hide-sm>Notificacion</md-button>
+          <md-button hide-sm>Perfil</md-button>
+          <md-button hide-gt-md class="md-icon-button"><md-icon>notifications</md-icon></md-button>
+          <md-button hide-gt-md class="md-icon-button"><md-icon>person</md-icon></md-button>
+
+        </div>
+      </md-toolbar>
+      <div layout="row" flex ng-controller="MovieController">
+        <md-sidenav md-component-id="nav" class="md-whiteframe-z3" md-is-locked-open="$mdMedia('gt-md')">
+          <md-content>
+            <md-list>
+              <md-subheader>Categorias</md-subheader>
+              <md-list-item ng-repeat="c in categories">
+                  <img ng-src="assets/images/ic_cinema_{{c}}.jpg" class="md-avatar"/>
+                  <p>{{c|uppercase}}</p>
+                  <md-checkbox class="md-secondary"></md-checkbox>
+              </md-list-item>
+            </md-list>
+          </md-content>
+        </md-sidenav>
+
+        <md-content flex>
+          <md-grid-list md-cols-gt-lg="6" md-cols-gt-md="4" md-cols-gt-sm="2" md-cols-sm="1"
+            md-row-height="1:1"  class="grid-margin">
+            <md-grid-tile ng-repeat="m in movies" class="center-crop" ng-style="{background_image:'url({{m.img}})'}"
+              md-colspan-gt-sm="{{m.cs}}" md-rowspan-gt-sm="{{m.rs}}" md-colspan-sm="1" md-rowspan-sm="1">
+              <md-grid-tile-footer>
+                <md-button class="md-icon-button"><md-icon class="material-icons light">favorite</md-icon></md-button>
+                <span class="md-body-1">{{m.name}}</span>
+              </md-grid-tile-footer>
+
+            </md-grid-tile>
+
+          </md-grid-list>
+        </md-content>
+      </div>
+      <footer layout-gt-md="row" layout-sm='column' layout-md='column'>
+        <div flex layout="column" class="footer-container">
+          <h4 class="md-headline">Localizanos</h4>
+          <p class="md-body-1">Calle 17 N # 6-66</p>
+          <div class="center-crop footer-map" style="background-image:url('assets/images/map.jpg')" flex></div>
+        </div>
+        <div flex layout="column" class="footer-container">
+          <h4 class="md-headline">Contactanos</h4>
+          <form md-theme="defaultdark">
+            <md-input-container>
+              <label>Nombre</label>
+              <input type="text">
+            </md-input-container>
+
+            <md-input-container>
+              <label>Correo</label>
+              <input type="email">
+            </md-input-container>
+
+            <md-input-container>
+              <label>Mensaje</label>
+              <textarea name="name" rows="3" cols="20"></textarea>
+            </md-input-container>
+            <div layout="row">
+              <span flex></span>
+              <md-button class="md-raised md-primary">Enviar</md-button>
+            </div>
+          </form>
+        </div>
+      </footer>
+
+    </section>
+
+
+    <!-- Angular JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-aria.min.js"></script>
+    <!-- Angular Material -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.11.0/angular-material.min.js"></script>
+    <!-- App -->
+    <script type="text/javascript" src="app/app.js"></script>
+    <script type="text/javascript" src="app/controllers/MovieController.js"></script>
+    <script type="text/javascript" src="app/controllers/NavController.js"></script>
+  </body>
+</html>

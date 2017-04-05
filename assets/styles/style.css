@@ -1,0 +1,33 @@
+.center-crop{
+  background-repeat: no-repeat;
+  background-position:center;
+  background-size:cover;
+}
+.material-icons.light{
+  color: rgba(255, 255, 255, 0.8);;
+}
+footer{
+  background: #222222;
+}
+.footer-map{
+  min-height: 40px;
+}
+
+@media(min-width:960px){
+  .grid-margin{
+    margin: 20px;
+  }
+  .footer-container{
+    margin: 20px;
+    color: #eeeeee;
+  }
+}
+@media(max-width:959px){
+  .grid-margiiin{
+    margin:0px;
+  }
+  .footer-container{
+    margin: 5px;
+    color: #eeeeee;
+  }
+}
